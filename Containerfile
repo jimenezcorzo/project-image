@@ -5,7 +5,7 @@ LABEL app="smallwebserver"
 ENV PORT 80
 RUN yum install -y httpd && yum clean all
 ADD ./content.zip ./tmp/
-RUN unzip /tmp/content.zip -d /var/www/html/
+RUN uncompress /tmp/content.zip -d /var/www/html/
 EXPOSE $PORT
 ENTRYPOINT ["/usr/sbin/httpd"]
 CMD ["-D", "FOREGROUND"]
